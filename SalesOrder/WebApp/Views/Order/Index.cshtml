@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Order Details";
+}
+@model List<Orders>
+
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="public,max-age=3600">
+    <title>Order Information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+</head>
+<body>
+    <form id="id1">
+    <div class="table-responsive">
+    <div class="divTable">
+        <div class="divRow">
+            
+            <div class="divCell" style="font:bolder;font-size:20px;">OrderId</div>
+            <div class="divCell" style="font:bolder;font-size:20px;">OrderDate</div>
+            <div class="divCell" style="font:bolder;font-size:20px;">Price</div>
+            <div class="divCell" style="font:bolder;font-size:20px;">ProductId</div>
+            <div class="divCell" style="font:bolder;font-size:20px;">UserId</div>
+            <div class="divCell" style="font:bolder;font-size:20px;">Quantity</div>
+            <div class="divCell" style="font:bolder;font-size:20px;">Total Price</div>
+            
+        </div>
+
+        @foreach (var ele in Model)
+        {
+            <div class="divRow">
+                <div class="divCell">@Html.DisplayFor(model => ele.orderid)</div>
+                <div class="divCell">@Html.DisplayFor(model => ele.orderdate)</div>
+                <div class="divCell">@Html.DisplayFor(model => ele.price)</div>
+                <div class="divCell">@Html.DisplayFor(model => ele.ProductId)</div>
+                <div class="divCell">@Html.DisplayFor(model => ele.UserId)</div>
+                <div class="divCell">@Html.DisplayFor(model => ele.quantity)</div>
+                <div class="divCell">@Html.DisplayFor(model => ele.totalprice)</div>
+            </div>
+        }
+    </div>
+    <h3>@DateTime.Now</h3>
+    </div>
+    </form>
+</body>
+</html>

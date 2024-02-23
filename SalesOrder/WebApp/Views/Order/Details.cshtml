@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["title"] = "Insert Information";
+}
+@model Orders
+<html>
+    <head>
+        <title>Insert New Info</title>
+    </head>
+    <body>
+        <h3 class="text-danger" style="align-content:center">@ViewBag.Message</h3>
+        <div class="container">
+            <div class="divTable">
+                <div class="divRow">
+        
+
+                    <div class="divCell"><b>Orderid</b></div>
+                    <div class="divCell"><b>OrderDate</b></div>
+                    <div class="divCell"><b>Price</b></div>
+                    <div class="divCell"><b>ProductId</b></div>
+                    <div class="divCell"><b>UserId</b></div>
+                    <div class="divCell"><b>Quantity</b></div>
+                    <div class="divCell"><b>TotalPrice</b></div>
+
+                </div>
+
+        
+                <div class="divRow">
+                    <div class="divCell">@Html.DisplayFor(model => Model.orderid)</div>
+                    <div class="divCell">@Html.DisplayFor(model => Model.orderdate)</div>
+                    <div class="divCell">@Html.DisplayFor(model => Model.price)</div>
+                    <div class="divCell">@Html.DisplayFor(model => Model.ProductId)</div>
+                    <div class="divCell">@Html.DisplayFor(model => Model.UserId)</div>
+                    <div class="divCell">@Html.DisplayFor(model => Model.quantity)</div>
+                    <div class="divCell">@Html.DisplayFor(model => Model.totalprice)</div>
+                </div>
+        
+            </div>
+        </div>
+    
+    </body>
+</html>
+

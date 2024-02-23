@@ -1,0 +1,74 @@
+﻿@model List<PurchaseOrder> 
+
+@{
+    ViewData["Title"] = "viewOrder";
+}
+
+<body>
+    <img class="bg-image bg-transparent" src="~/lib/bg/ecommerce8.jpg" />
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+        <h3>
+            <b>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-spreadsheet-fill" viewBox="0 0 16 16">
+                    <path d="M12 0H4a2 2 0 0 0-2 2v4h12V2a2 2 0 0 0-2-2m2 7h-4v2h4zm0 3h-4v2h4zm0 3h-4v3h2a2 2 0 0 0 2-2zm-5 3v-3H6v3zm-4 0v-3H2v1a2 2 0 0 0 2 2zm-3-4h3v-2H2zm0-3h3V7H2zm4 0V7h3v2zm0 1h3v2H6z" />
+                </svg> View - Purchase Detail
+            </b>
+        </h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PurchaseOrder" asp-action="Index">Index</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PurchaseOrder" asp-action="createOrder">Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PurchaseOrder" asp-action="readOrder">Read</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PurchaseOrder" asp-action="updateOrder">Update</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="PurchaseOrder" asp-action="deleteOrder">Delete</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br />
+    <div justify-content-center align-items-center>
+    <table>
+        <thead>
+            <tr>
+                <th class="fixed-column">Purchase Id</th>
+                <th>Purchase FromLocation</th>
+                <th >Purchase ToLocation</th>
+                <th>Purchase Date</th>
+                <th>Shipment Cost</th>
+                <th>Total Amount</th>
+                <th>Order Id</th>
+            </tr>
+        </thead>
+        
+        @foreach (var orders in Model)
+        {
+            <tbody>
+            <tr>
+                    <td name="PurchaseId">@Html.DisplayFor(modelItem => orders.PurchaseId)</td>
+                    <td name="PurchaseFromLocation"> @Html.DisplayFor(modelItem => orders.PurchaseFromLocation) </td>
+                    <td name="PurchaseToLocation"> @Html.DisplayFor(modelItem => orders.PurchaseToLocation) </td>
+                    <td name="PurchaseDate"> @Html.DisplayFor(modelItem => orders.PurchaseDate) </td>
+                    <td name="ShipmentCost"> @Html.DisplayFor(modelItem => orders.ShipmentCost) </td>
+                    <td name="TotalAmount"> @Html.DisplayFor(modelItem => orders.TotalAmount) </td>
+                    <td name="OrderId"> @Html.DisplayFor(modelItem => orders.OrderId) </td>
+            </tr>
+            </tbody>
+        }
+    </table>
+</div>
+    </body>

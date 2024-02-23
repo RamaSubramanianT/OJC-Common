@@ -1,0 +1,46 @@
+﻿@model DemoMVC.Models.Employee
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add Employee Details";
+}
+<h2>Add Employee Details</h2>
+<div class="flex-container">
+    <h4>
+        @ViewData["Message"]<br />
+    </h4>
+    <div class="col-md-4 col-sm-6">
+        <form asp-controller="Employee" asp-action="AddEmployee">
+            <div class="form-group">
+                <label> Name : </label> 
+                <input asp-for="Name" placeholder="Name" />
+            </div>
+            <div class="form-group">
+                <label>DeptName : </label>
+                <input asp-for="DeptName" placeholder="DeptName" />
+            </div>
+            <div class="form-group">
+                <label>Salary : </label>
+                <input asp-for="Salary" placeholder="Salary" />
+            </div>
+            <div class="form-group">
+                <label>Is Employee Active : </label>
+                <input type="radio" asp-for="active" value="Active" />Active
+                <input type="radio" asp-for="active" value="In Active" />In Active
+            </div>
+            <div class="form-group">
+                <label>Date of Birth : </label>
+                <input asp-for="dob" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Gender : </label>
+                <input type="radio" asp-for="Gender" value="Male" />Male
+                <input type="radio" asp-for="Gender" value="Female" />Female
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" />
+             </div>
+        </form>
+     </div>
+</div>

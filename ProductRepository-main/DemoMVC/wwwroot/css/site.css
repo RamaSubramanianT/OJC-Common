@@ -1,0 +1,194 @@
+﻿html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+nav {
+    box-shadow: 0 0 3px 3px lightblue;
+}
+body {
+    margin-bottom: 60px;
+    background-image: linear-gradient( #ffffff, lightblue);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-image: linear-gradient( #ffffff, lightblue);
+}
+
+th {
+    background: #ccc;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+/* styles for desktop devices */
+@media only screen and (min-width: 992px) {
+    body {
+        font-size: 16px;
+        width: 80%;
+        margin: auto;
+    }
+}
+
+/* styles for mobile devices */
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+    table, thead, tbody, td, tr {
+        display: block;
+        justify-content:normal;
+    }
+    th{
+        display :none;
+    }
+    tr {
+        border: 1px solid #ccc;
+        text-align: left;
+        align-content:end;
+    }
+
+    td {
+        text-align: left;
+        align-content: end;
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+     }
+    td:nth-of-type(1):before {
+        content: "Product ID";
+    }
+    td:nth-of-type(2):before {
+        content: "SKU";
+    }
+    td:nth-of-type(3):before {
+        content: "Product Name";
+    }
+    td:nth-of-type(4):before {
+        content: "Features";
+    }
+    td:nth-of-type(5):before {
+         content: "Product Price";
+    }
+    td:nth-of-type(6):before {
+         content: "Stock Availability";
+    }
+    td:nth-of-type(7):before {
+        content: "Warranty";
+    }
+    td:nth-of-type(8):before {
+        content: "Rating";
+    }
+    td:nth-of-type(9):before {
+        content: "Vendor ID";
+    }
+}
+
+
+input[type=text] {
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius: 10px;
+}
+input[type=password] {
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius: 10px;
+}
+label {
+    display: inline-block;
+    width: 140px;
+    text-align: left;
+}
+.flex-container {
+    box-shadow: 3px 3px 3px 3px lightblue;
+    backdrop-filter:blur(50px);
+    text-align:center;
+    align-content:center;
+    align-items:center;
+    
+}
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*body {
+    background: #288dfa;
+    position: relative;
+    height: 100vh;
+}*/
+
+.form--user__icon span {
+    font-size: 32px;
+    position: absolute;
+    top: 50% ;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ccontainer {
+    width: 70%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    color: #000;
+    content: '';
+    padding: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+    box-shadow: 0 0 5px 3px lightblue;
+}
+
+
+.form--user__icon {
+    border-radius: 50%;
+    height: 100px;
+    z-index: 9;
+    top: -50px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    background: #ea7a1a;
+    width: 100px;
+    color: #fff;
+}

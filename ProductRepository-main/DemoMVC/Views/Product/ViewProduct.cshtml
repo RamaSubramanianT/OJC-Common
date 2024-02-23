@@ -1,0 +1,55 @@
+﻿@model List<Product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "View Product";
+}
+@Html.AntiForgeryToken()
+<p> Product Details</p>
+<table>
+    <tr>
+        <th><pre>ProductId </pre></th>
+        <th><pre>SKU </pre> </th>
+        <th><pre>ProductName </pre> </th>
+        <th><pre>Features </pre> </th>
+        <th><pre>Price </pre> </th>
+        <th><pre>Stock </pre> </th>
+        <th><pre>Warranty </pre> </th>
+        <th><pre>Rating </pre> </th>
+        <th><pre>VendorId </pre></th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SKU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Features)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Warranty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorId)
+            </td>
+        </tr>
+    }
+</table>

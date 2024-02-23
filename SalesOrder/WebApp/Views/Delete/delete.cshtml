@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Delete";
+}
+@model WebApp.ViewModel.DeleteVM
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+
+<html>
+    <head>
+        <title>Delete Data</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+
+            form {
+                margin-top: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+
+            input[type="text"] {
+                width: 100%; /* Adjust width as needed */
+                padding: 8px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            input[type="submit"] {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+                input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+
+            
+            .textdanger{
+                color:ghostwhite;
+                font-size:medium;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Delete</h1>
+            @Html.AntiForgeryToken()
+            <form asp-controller="Delete" asp-action="delete" method="post">
+                <label for="orderid">OrderId</label>
+                <input asp-for="@Model.orderid" type="text"/>
+                <span asp-validation-for="@Model.orderid" class="textdanger"></span>
+                <br/>
+                <input id="deleteButton" type = "submit" value="Submit"/>
+            </form>
+        
+        </div>
+        <h3 class="textdanger" style="align-content:center; padding:3px; margin-top:4px; font-size:15px">@ViewBag.Message</h3>
+    </body>
+</html>

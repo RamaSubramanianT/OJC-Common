@@ -1,0 +1,65 @@
+﻿@model DemoMVC.Models.UpdateProduct
+@{
+    ViewData["Title"] = "Update Stock of a Product";
+}
+@section Scripts
+{
+    <script>
+        function requestConfirmation(event) {
+            event.preventDefault();
+            swal.fire({
+                title: "Are you sure you want to update?",
+                icon: "question",
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: "Save",
+                denyButtonText: "Don't save"
+            }).then(result => {
+                if (result.isConfirmed) {
+                    const updateForm = document.getElementById('updateForm');
+                    updateForm.submit();
+                    Swal.fire("Saved!", "Saved with the new changes!", "success");
+                }
+                else if (result.isDenied) {
+                    swal.fire("Cancelled!","Update operation not performed","info");
+                }
+            });
+        }
+    </script>
+}
+    
+<h1>Update Stock Details</h1>
+<hr />
+<div class="flex-container ">
+    <h4>
+        @ViewData["Message"]
+    </h4>
+    <div class="col-md-4 col-sm-6">
+        <form asp-controller="Product" id="updateForm" asp-action="UpdateStock" onsubmit="requestConfirmation(event)" >
+            <div class="form-group">
+                <br />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+                </svg>
+                <label><h5>SKU : </h5>  </label>
+                <input asp-for="SKU" placeholder="SKU" /><br/>
+                <span asp-validation-for="SKU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
+                </svg>
+                <label style="text-align:left"><h5>Updated Stock : </h5>   </label>
+                <input type="text" asp-for="Stock" placeholder="Stock" /><br />
+                <span asp-validation-for="Stock" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <br />
+                @* @Html.AntiForgeryToken() *@
+                <button type="submit" class="btn btn-secondary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

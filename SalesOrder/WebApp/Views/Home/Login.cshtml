@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Login
+<html>
+    <head>
+        <title>Login Page</title>
+    
+        <style>
+            
+            label{
+                color:ghostwhite;
+            }
+
+        .textdanger {
+            color: ghostwhite;
+            font-size: medium;
+        }
+        .demo{
+            background-color: rgba()
+        }
+        </style>
+    </head>
+    <body>
+        
+        <h1>Login</h1>
+        
+        <div class="contains">
+            <div class="demo">
+                <form  asp-controller="Home" asp-action="Login" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input asp-for="username" type="text" class="form-control" />
+                        <span asp-validation-for="@Model.username" class="textdanger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input asp-for="password" type="password" class="form-control" />
+                        <span asp-validation-for="@Model.password" class="textdanger"></span>
+                    </div>
+                    <br />
+                    <br/>
+                    <input type="Submit" value="Submit"/>
+                    <h6>@ViewBag.ErrorMessage</h6>
+                </form>
+            </div>
+        </div>
+        <h3 class="textdanger" style="align-content:center; padding: 3px; margin-top:4px; font-size:15px;">@ViewBag.Message1</h3>
+        
+    </body>
+</html>
